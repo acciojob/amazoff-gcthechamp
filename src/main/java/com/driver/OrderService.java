@@ -84,7 +84,13 @@ public class OrderService {
     {
         int hrs = time/60;
         int mins = time%60;
-        return hrs+":"+mins;
+        String HH = String.valueOf(hrs);
+        String MM = String.valueOf(mins);
+        if(HH.length() < 2)
+            HH = "0" + HH;
+        if(MM.length() < 2)
+            MM = "0" + MM;
+        return HH + ":" + MM;
     }
     public Integer getOrdersLeftAfterGivenTimeByPartnerId(String time, String partnerId) {
         Integer count = 0;
